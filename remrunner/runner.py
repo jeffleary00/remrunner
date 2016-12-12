@@ -88,6 +88,9 @@ class Runner(object):
     def run(self, local_script, sudo=False, timeout=10, opts=None):
         exit_code = 1
 
+        if not os.path.exists(local_script):
+            raise IOError (1, "File %s not found" % local_script)
+            
         try:
             self.sftp = self.ssh.open_sftp()
         except Exception as e:
