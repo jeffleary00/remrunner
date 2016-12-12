@@ -64,7 +64,8 @@ run(script, sudo, timeout, opts)
   *timeout* : (seconds, optional) Defaults to 10
   *opts* : optional command-line arguments that will be passed to remote script.
   
-*Examples:
+*Examples*
+
 - Run remote script with sudo::
 
     r.run(script, True)
