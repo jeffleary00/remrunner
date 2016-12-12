@@ -215,8 +215,6 @@ if __name__ == '__main__':
                                 help='path to local script to run on remote host')
     parser.add_argument('-u', '--user', 
                                 help='user to connect to host as')
-    parser.add_argument('-p', '--password', 
-                                help='password or passkey for user')
     parser.add_argument('-s', '--sudo', action='store_true', 
                                 help='run remote script with sudo')
     parser.add_argument('-t', '--timeout', type=int,
