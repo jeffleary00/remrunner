@@ -13,8 +13,8 @@ Can be used as module, or standalone script.
 
 Module example:
 
-    from remrunner import Runner
-    r = Runner(host, username)
+    from remrunner import runner
+    r = runner.Runner(host, username)
     rval, out, err = r.run('/path/to/script.py', True, 30, "--interval=3 -v")
     r.close()
     
