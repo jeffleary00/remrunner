@@ -11,13 +11,13 @@ Requirements
 
 Install
 =======
-
+``
     pip install remrunner
-
+``
 
 Synopsis
 ========
-
+``
     from remrunner import Runner
     r = Runner(host, username)
     
@@ -28,7 +28,7 @@ Synopsis
         print(stdout)
  
     r.close()
-    
+``    
 
 Details
 =======
