@@ -32,7 +32,7 @@ class RemoteManager():
     def install_remote_script(self, local_script):
         try:
             self.sftp.put(local_script, self.remote_script_path(local_script))
-            self.sftp.chmod(self.remote_script_path(local_script), 0700)
+            self.sftp.chmod(self.remote_script_path(local_script), 0o700)
         except Exception as e:
             raise e
         
@@ -83,6 +83,6 @@ class RemoteManager():
             try:
                 sftp.stat(dir_)
             except:
-                sftp.mkdir(dir_, 0700)
+                sftp.mkdir(dir_, 0o700)
 
 

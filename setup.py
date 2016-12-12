@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'remrunner',
   packages = ['remrunner'], 
-  version = '0.2',
+  version = '0.3',
   description = 'Transfer a local script file to a remote host and execute it.',
   author = 'Jeff Leary',
   author_email = 'sillymonkeysoftware@gmail.com',
