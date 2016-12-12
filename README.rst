@@ -1,17 +1,23 @@
-# Remote Runner
+Remote Runner
+=============
 Transfer a local script file to a remote host and execute it.
 
 
-# Requirements
+Requirements
+============
 - Python 2.7 and Python 3 are supported.
 - Paramiko 1.10 or higher.
 
 
-# Install
+Install
+=======
+
     pip install remrunner
 
 
-# Synopsis
+Synopsis
+========
+
     from remrunner import Runner
     r = Runner(host, username)
     
@@ -24,7 +30,8 @@ Transfer a local script file to a remote host and execute it.
     r.close()
     
 
-# Details
+Details
+=======
 Named scripts are copied to a temp location (./.remrunner/[PID]/) on the remote 
 host, permissions are set to 0700, and script is then executed.
 
@@ -32,7 +39,9 @@ On cleanup, the [PID] directory and all contents are removed before closing
 the connections.
 
 
-# API
+API
+===
+
 Class Runner
 ------------
 
@@ -58,22 +67,21 @@ close()
   Clean up temporary directories on remote host and close SSH and SFTP sessions.
   
 
-# Known Issues
+Known Issues
+============
 Currently, as this is intended to be used for automation, *remrunner* assumes 
 that SSH keys to allow password-less logins are already in place. 
 There is no option to prompt for password or ssh passphrase. 
 Maybe in a future release.
 
 
-# To Do
+To Do
+=====
 Could use better exception handling in a few places.
 Needs a tests.
 
   
-# Author
+Author
+======
 Jeff Leary (sillymonkeysoftware -at- gmail -dot- com)
 
-
-# History
-Inspired by the *Script* module in Ansible. I needed the same functionality for
-a small project and didn't want the bloat of using the full Ansible stack.
