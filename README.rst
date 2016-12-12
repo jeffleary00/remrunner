@@ -59,10 +59,14 @@ run(script, sudo, timeout, opts)
   Run the named local script on remote host.
   
   *script* : Path to script on local machine
+  
   *sudo* : (Boolean) Defaults to False. When true, the execution command on 
   remote machine will be prefaced with "sudo "
+  
   *timeout* : (seconds, optional) Defaults to 10
+  
   *opts* : optional command-line arguments that will be passed to remote script.
+  
   
 *Examples*
 
