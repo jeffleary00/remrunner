@@ -25,10 +25,10 @@ Transfer a local script file to a remote host and execute it.
     
 
 # Details
-Named scripts are copied to a temp location (./.remrunner/<PID>/) on the remote 
+Named scripts are copied to a temp location (./.remrunner/[PID]/) on the remote 
 host, permissions are set to 0700, and script is then executed.
 
-On cleanup, the <PID> directory and all contents are removed before closing
+On cleanup, the [PID] directory and all contents are removed before closing
 the connections.
 
 
