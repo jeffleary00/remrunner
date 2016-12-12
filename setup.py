@@ -8,7 +8,7 @@ setup(
   author_email = 'sillymonkeysoftware@gmail.com',
   url = 'https://github.com/jeffleary00/remrunner',
   download_url = 'https://github.com/jeffleary00/remrunner/tarball/0.1',
-  install_requires=['paramiko'],
+  # install_requires = ['paramiko'],
   keywords = ['automation', 'ssh', 'command', 'paramiko'],
   classifiers = [
     'License :: OSI Approved :: MIT License',

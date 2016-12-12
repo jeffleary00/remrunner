@@ -3,7 +3,7 @@ import os
 import sys
 import argparse
 import paramiko
-
+from remrunner import remotemanager
 
 """
 Runs a local script on a remote host.
@@ -31,11 +31,10 @@ to hanging, and the Client does not accept 'timeout' option for remote_exec()
 
 """
 
-__version_info__ = ('0', '1', '0')
+__version_info__ = ('0', '2', '0')
 __version__ = '.'.join(__version_info__)
 
 
-# -----------------------------------------
 class Runner(object):
 
     def __init__(self, host, user=None, **kwargs):
@@ -94,7 +93,7 @@ class Runner(object):
         except Exception as e:
             raise e
 
-        self.mgr = RemoteManager(self.sftp)
+        self.mgr = remotemanager.RemoteManager(self.sftp)
         self.mgr.install_remote_script(local_script)
         command_string = self.mgr.remote_script_path(local_script)
 

@@ -20,8 +20,8 @@ Synopsis
 ========
 ::
 
-    from remrunner import Runner
-    r = Runner(host, username)
+    from remrunner import runner
+    r = runner.Runner(host, username)
     
     rval, stdout, stderr = r.run('/path/to/local/script.py')
     if rval:
