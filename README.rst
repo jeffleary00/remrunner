@@ -12,14 +12,12 @@ Requirements
 Install
 =======
 
-::
     pip install remrunner
 
 
 Synopsis
 ========
 
-::
     from remrunner import Runner
     r = Runner(host, username)
     
