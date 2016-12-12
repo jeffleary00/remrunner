@@ -64,6 +64,19 @@ run(script, sudo, timeout, opts)
   *timeout* : (seconds, optional) Defaults to 10
   *opts* : optional command-line arguments that will be passed to remote script.
   
+*Examples:
+- Run remote script with sudo::
+
+    r.run(script, True)
+    
+- Run remote script and specify a 60 second timeout::
+
+    r.run(script, False, 60)
+     
+- Run remote script with timeout and optional arguments::
+
+    r.run(script, False, 15, "--verbose --interval=4")
+
 
 close()      
   Clean up temporary directories on remote host and close SSH and SFTP sessions.
