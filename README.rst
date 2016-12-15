@@ -6,7 +6,7 @@ Transfer a local script file to a remote host and execute it.
 Requirements
 ============
 - Python 2.7 and Python 3 are supported.
-- Paramiko 1.10 or higher.
+- Paramiko 1.10+.
 
 
 Install
@@ -32,15 +32,23 @@ Synopsis
     r.close()
   
 
+Uses
+====
+- Great when using scripts to collect information from a large number of 
+remote hosts. 
+- No need to maintain scripts across multiple systems. Only the script versions
+on the local host need to be maintained.
+  
+
 Details
 =======
-Named scripts are copied to a temp location (./.remrunner/[PID]/) on the remote 
+Named files are copied to a temp location (./.remrunner/[PID]/) on the remote 
 host, permissions are set to 0700, and script is then executed.
 
 On cleanup, the [PID] directory and all contents are removed before closing
 the connections.
 
-
+ 
 API
 ===
 
@@ -48,7 +56,8 @@ Class Runner
 ------------
 
 init(host, user, **kwargs)
-  *host* : Required.
+  *host* : Required. IP Address or FQDN
+  
   *user* : Optional. Defaults to current running user on local machine.
   
   keyword-args:
@@ -67,8 +76,13 @@ run(script, sudo, timeout, opts)
   
   *opts* : optional command-line arguments that will be passed to remote script.
   
+
+close()      
+  Clean up temporary directories on remote host and close SSH and SFTP sessions.
   
-*Examples*
+ 
+Examples
+========
 
 - Run remote script with sudo::
 
@@ -82,10 +96,6 @@ run(script, sudo, timeout, opts)
 
     r.run(script, False, 15, "--verbose --interval=4")
 
-
-close()      
-  Clean up temporary directories on remote host and close SSH and SFTP sessions.
-  
 
 Known Issues
 ============
