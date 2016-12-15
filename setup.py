@@ -1,10 +1,12 @@
 from distutils.core import setup
+readme = open('README.rst', 'r')
+
 setup(
   name = 'remrunner',
   packages = ['remrunner'], 
   version = '0.4',
   description = 'Transfer a local script file to a remote host and execute it.',
-  long_description=read('README.rst'),
+  long_description=readme.read(),
   author = 'Jeff Leary',
   author_email = 'sillymonkeysoftware@gmail.com',
   url = 'https://github.com/jeffleary00/remrunner',

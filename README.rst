@@ -34,10 +34,8 @@ Synopsis
 
 Uses
 ====
-- Great when using scripts to collect information from a large number of 
-remote hosts. 
-- No need to maintain scripts across multiple systems. Only the script versions
-on the local host need to be maintained.
+- Great when using scripts to collect information from a large number of remote hosts. 
+- No need to maintain scripts across multiple systems. Only the script versions on the local host need to be maintained.
   
 
 Details
@@ -55,7 +53,7 @@ API
 Class Runner
 ------------
 
-init(host, user, **kwargs)
+init(host, user, kwargs)
   *host* : Required. IP Address or FQDN
   
   *user* : Optional. Defaults to current running user on local machine.
