@@ -9,37 +9,23 @@ class RemoteManager():
     def __init__(self, sftp):
         self.sftp = sftp
         self.targetdir = os.path.join('.remrunner', str(os.getpid()))
-        try:
-            self.mkdir_p(self.sftp, self.targetdir)
-        except Exception as e:
-            print(type(e))
-            print(e)
-            raise 
-            
+        self.mkdir_p(self.sftp, self.targetdir)
 
     def cleanup(self):
-        try:
-            files = self.sftp.listdir(self.targetdir)
-            for f in files:
-                self.sftp.remove("%s/%s" % (self.targetdir, f))
+        files = self.sftp.listdir(self.targetdir)
+        for f in files:
+            self.sftp.remove("%s/%s" % (self.targetdir, f))
         
-            self.sftp.rmdir(self.targetdir)
-        except Exception as e:
-            print(e)
-            pass
+        self.sftp.rmdir(self.targetdir)
             
     
     def install_remote_script(self, local_script):
-        try:
-            self.sftp.put(local_script, self.remote_script_path(local_script))
-            self.sftp.chmod(self.remote_script_path(local_script), 0o700)
-        except Exception as e:
-            raise e
+        self.sftp.put(local_script, self.remote_script_path(local_script))
+        self.sftp.chmod(self.remote_script_path(local_script), 0o700)
         
 
     def remove_remote_script(self, script):
         self.sftp.remove(script)
-        pass
 
 
     def remote_dir(self, script):

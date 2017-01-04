@@ -52,15 +52,12 @@ class Runner(object):
                 setattr(self, k, v)
 
         if not self.ssh:
-            try:
-                self.ssh = paramiko.SSHClient()
-                if self.auto_add:
-                    self.ssh.set_missing_host_key_policy(
+            self.ssh = paramiko.SSHClient()
+            if self.auto_add:
+                self.ssh.set_missing_host_key_policy(
                                                     paramiko.AutoAddPolicy())
                                                     
-                self.ssh.connect(self.host, username=self.user)
-            except Exception as e:
-                raise e
+            self.ssh.connect(self.host, username=self.user)
 
 
     def close(self):
@@ -91,11 +88,7 @@ class Runner(object):
         if not os.path.exists(local_script):
             raise IOError (1, "File %s not found" % local_script)
             
-        try:
-            self.sftp = self.ssh.open_sftp()
-        except Exception as e:
-            raise e
-
+        self.sftp = self.ssh.open_sftp()
         self.mgr = remotemanager.RemoteManager(self.sftp)
         self.mgr.install_remote_script(local_script)
         command_string = self.mgr.remote_script_path(local_script)
@@ -107,14 +100,9 @@ class Runner(object):
             command_string = command_string + " " + opts
 
 
-        try:
-            stdin, stdout, stderr = self.ssh.exec_command(command_string, 
+        stdin, stdout, stderr = self.ssh.exec_command(command_string, 
                                                     timeout=timeout)
-            exit_code = stdout.channel.recv_exit_status()
-                                                       
-        except Exception as e:
-            raise e
-
+        exit_code = stdout.channel.recv_exit_status()
         out = stdout.readlines()
         err = stderr.readlines()
         return (exit_code, out, err)

@@ -107,6 +107,7 @@ To Do
 =====
 Could use better exception handling in a few places.
 Needs a tests.
+Probably needs sanitizing/de-tainting of optional user arguments.
 
   
 Author

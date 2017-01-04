@@ -1,16 +1,21 @@
+import os
 from distutils.core import setup
-readme = open('README.rst', 'r')
 
+contents = ""
+if os.path.exists('README.rst'):
+    readme = open('README.rst', 'r')
+    contents = readme.read()
+    
 setup(
   name = 'remrunner',
   packages = ['remrunner'], 
-  version = '0.4',
+  version = '0.5',
   description = 'Transfer a local script file to a remote host and execute it.',
-  long_description=readme.read(),
+  long_description=contents,
   author = 'Jeff Leary',
   author_email = 'sillymonkeysoftware@gmail.com',
   url = 'https://github.com/jeffleary00/remrunner',
-  download_url = 'https://github.com/jeffleary00/remrunner/tarball/0.4',
+  download_url = 'https://github.com/jeffleary00/remrunner/tarball/0.5',
   # install_requires = ['paramiko'],
   keywords = ['automation', 'ssh', 'command', 'paramiko'],
   classifiers = [
